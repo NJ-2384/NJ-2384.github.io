@@ -17,7 +17,6 @@ profile:
     and warehouse automation. IoT tinkerer, programmer and troubleshooter at heart.
   photo: ""                 # e.g. img/profile.jpg  (leave "" to show initials)
   resume: ""                # e.g. resume.pdf       (leave "" to hide the button)
-  email: neerajjoshi2384@gmail.com
   linkedin: https://www.linkedin.com/in/neerajjoshi23/
   github: https://github.com/NJ-2384
 
@@ -127,47 +126,19 @@ experience:
     from: Dec 2024
     to: Dec 2025
 
-  - role: Trainee
-    org: AKGEC-KUKA
-    from: Jan 2024
-    to: Dec 2024
-
-  - role: Trainee
-    org: AKGEC Skills Foundation
-    location: Ghaziabad
-    from: Jan 2024
-    to: Sep 2024
-
-  - role: Student Representative (Generation Global)
-    org: Tony Blair Institute for Global Change
-    from: Apr 2015
-    to: May 2019
-    points:
-      - Took part in video discussions with international students on events affecting the environment and daily life.
-      - Wrote articles on how geopolitical approaches to environmental policy shape sustainability outcomes.
-
 education:
   - degree: B.Tech, Electrical, Electronics & Communications Engineering
-    school: Ajay Kumar Garg Engineering College, Ghaziabad
+    school: AKGEC, Ghaziabad
     from: Nov 2022
     to: May 2026
 
-  - degree: AISSCE (PCM + AI)
-    school: Gurukul The School, Ghaziabad
-    from: "2020"
-    to: "2022"
-    note: Class Representative 2013–2019 · Junior School Prefect 2014–15
-
 certifications:
   - Industrial Automation Specialist
-  - Robot Programming & Simulation — Basic
-  - Elements of AI
-  - ICEECT-2024
-  - Student Development Programme
+  - Robot Programming & Simulation
+  - ICEECT-2024 Research Paper
 
 awards:
   - All Rounder
-  - Nightangale
   - Scholarship
   - Consistent Performer
   - Scholar
@@ -176,15 +147,13 @@ awards:
 skills:
   - group: Top Skills
     items: [Industrial Robotics, PLC Programming, Warehouse Automation]
+  - group: Tools
+    items: [Git, Docker, Linux, PostgreSQL]
   - group: Programming
-    items: [Python, C / C++, Go, Structured Text, JavaScript]
+    items: [Python, Embedded C, Go, Structured Text]
   - group: Embedded & IoT
     items: [ESP32, Arduino, Raspberry Pi, MQTT, GSM / GNSS]
   - group: Industrial Automation
-    items: [CODESYS, PLC, EtherNet/IP, HMI, Machine Vision]
+    items: [CODESYS, PLC, EtherCAT, EtherNet/IP, PROFINET, HMI, Machine Vision]
   - group: Robotics & AI
-    items: [Kalman Filtering, Odometry, OpenCV, LLM pipelines]
-  - group: Tools
-    items: [Git, Docker, Linux, PostgreSQL]
-  - group: Spoken Languages
-    items: [English — Professional, Hindi — Native, Kumauni — Elementary]
+    items: [LLM pipelines, Agentic Workflow, Model Serving, Kalman Filtering, Odometry, OpenCV]
