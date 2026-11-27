@@ -3,22 +3,40 @@
 #  Rules of thumb:
 #   • Wrap text in "quotes" if it contains a colon ( : ) or starts with a symbol.
 #   • Lists use "- " at the start of each item; keep indentation consistent (2 spaces).
-#   • Delete any field you don't want shown (e.g. links, points, resume).
+#   • Delete any field you don't want shown (e.g. links, points, resume, image).
+#   • icon: any name from https://lucide.dev/icons  (e.g. bot, cpu, factory, brain)
 # ─────────────────────────────────────────────────────────────
 
+# Look & feel
+#   accent:     blue | red | crimson | ruby | green | amber
+#   background: grid | circuit | aurora | dots | stars | none
+# Tip: preview without editing → http://localhost:8000/?accent=red&bg=circuit
+theme:
+  accent: ruby
+  background: circuit
 profile:
   name: Neeraj Joshi
   short_name: Neeraj
-  logo: "<NJ />"
+  logo: "<NJ-2384>"
   status: Robotics Engineer @ Sapien Robotics
   headline: I build machines that sense and act.
   bio: >
     Electronics & Communication engineer working on industrial robotics, PLC programming
     and warehouse automation. IoT tinkerer, programmer and troubleshooter at heart.
   photo: ""                 # e.g. img/profile.jpg  (leave "" to show initials)
-  resume: ""                # e.g. resume.pdf       (leave "" to hide the button)
+  resume: ""                # e.g. resume.pdf       (leave "" to hide the download button)
   linkedin: https://www.linkedin.com/in/neerajjoshi23/
   github: https://github.com/NJ-2384
+
+# Heading + one-line subtitle for each section. Delete a subtitle to hide it.
+sections:
+  impact:     { title: "Where I've made an impact" }
+  projects:   { title: Featured Projects,     subtitle: "From embedded wearables to industrial automation" }
+  research:   { title: Patents & Publications, subtitle: "Ideas that made it onto paper" }
+  experience: { title: Professional Journey,  subtitle: "Building robots and automation from the classroom to the warehouse floor" }
+  education:  { title: Education & Awards }
+  skills:     { title: Expertise & Technologies, subtitle: "The tools I reach for" }
+  contact:    { title: "Let's build something", subtitle: "Robotics, automation or embedded work — I'm always happy to talk." }
 
 stats:
   - value: "2"
@@ -28,9 +46,28 @@ stats:
   - value: "7+"
     label: open-source projects
 
+# Logo strip under the hero. Put logo files in img/logos/.
+# Without a logo the name is shown as a text tile instead.
+impact:
+  - name: Sapien Robotics
+    logo: ""                # e.g. img/logos/sapien.png
+  - name: XIHI Technology
+    logo: ""
+  - name: AKGEC-KUKA
+    logo: ""
+  - name: AKGEC
+    logo: ""
+
+# Media for a project card (all optional, pick one):
+#   image: img/projects/odometry.jpg
+#   video: img/projects/odometry.mp4               ← short muted looping clip (keep < 10 MB)
+#   video: https://youtu.be/VIDEO_ID               ← YouTube (unlisted works)
+#   video: https://drive.google.com/file/d/FILE_ID/view   ← Google Drive (sharing: "Anyone with the link")
+# With no media the card shows a banner with its icon.
 projects:
   - title: Multi-Wheel Odometry with Kalman Filtering
     meta: Robotics · Sensor fusion
+    icon: gauge
     description: Real-time odometry estimation for a 4-wheel differential-drive robot, fusing wheel encoder data through a Kalman filter for a stable pose estimate.
     tags: [Python, Kalman Filter, Odometry]
     links:
@@ -39,6 +76,7 @@ projects:
 
   - title: Automatic Industrial Waste Sorting System
     meta: Automation · Hardware
+    icon: recycle
     description: A low-cost system that sorts mixed-material waste automatically with minimal human intervention.
     tags: [Sensors, Actuators, Automation]
     links:
@@ -47,6 +85,7 @@ projects:
 
   - title: Real-Time Fall Detection Band
     meta: Embedded · Wearable
+    icon: watch
     description: A smart band that detects falls in elderly people, children and people with disabilities, sends GSM alerts and shares live GNSS location. Patented.
     tags: [C++, IMU, GSM, GNSS]
     links:
@@ -55,6 +94,7 @@ projects:
 
   - title: Oorja — Real-Time Power Monitoring
     meta: IoT · Energy
+    icon: zap
     description: Live monitoring and analysis of power consumption, helping homes and industries cut energy use and cost. Published as a research paper.
     tags: [C++, IoT, MQTT]
     links:
@@ -63,6 +103,7 @@ projects:
 
   - title: Early Detection of Groundwater Contamination
     meta: IoT · Environment
+    icon: droplets
     description: A sensor-based system that monitors groundwater quality and flags contamination early.
     tags: [C++, Sensors, Embedded]
     links:
@@ -71,6 +112,7 @@ projects:
 
   - title: ImageSorter
     meta: Computer vision
+    icon: scan-face
     description: Trains a face-encoding model on a dataset, then scans a whole folder tree and separates out photos that match above 60%.
     tags: [Python, Face Recognition, OpenCV]
     links:
@@ -79,6 +121,7 @@ projects:
 
   - title: RemuxPlus
     meta: Desktop tool
+    icon: clapperboard
     description: A modern GUI over FFmpeg that handles video processing without the command line.
     tags: [Python, CustomTkinter, FFmpeg]
     links:
@@ -104,6 +147,10 @@ research:
       - label: Project
         url: https://github.com/NJ-2384/Oorja
 
+# Add 2–4 "points" per role — that's what makes these cards look full. Example:
+#    points:
+#      - Built the PLC logic for ... using CODESYS
+#      - Integrated ... over EtherNet/IP, cutting ... by 30%
 experience:
   - role: Robotics Engineer
     org: Sapien Robotics
@@ -146,14 +193,32 @@ awards:
 # The first group is highlighted. Order groups/items however you like.
 skills:
   - group: Top Skills
+    icon: sparkles
     items: [Industrial Robotics, PLC Programming, Warehouse Automation]
   - group: Tools
+    icon: wrench
     items: [Git, Docker, Linux, PostgreSQL]
   - group: Programming
+    icon: code-xml
     items: [Python, Embedded C, Go, Structured Text]
   - group: Embedded & IoT
+    icon: cpu
     items: [ESP32, Arduino, Raspberry Pi, MQTT, GSM / GNSS]
   - group: Industrial Automation
+    icon: factory
     items: [CODESYS, PLC, EtherCAT, EtherNet/IP, PROFINET, HMI, Machine Vision]
   - group: Robotics & AI
+    icon: brain
     items: [LLM pipelines, Agentic Workflow, Model Serving, Kalman Filtering, Odometry, OpenCV]
+
+# Chips shown in the contact section.
+expertise:
+  - Industrial Robotics
+  - PLC Programming
+  - Warehouse Automation
+  - Industrial Networking
+  - Embedded Systems
+  - IoT
+  - Machine Vision
+  - Sensor Fusion
+  - LLM Integration
