@@ -1,0 +1,190 @@
+# ─────────────────────────────────────────────────────────────
+#  Edit this file to update the website. No HTML needed.
+#  Rules of thumb:
+#   • Wrap text in "quotes" if it contains a colon ( : ) or starts with a symbol.
+#   • Lists use "- " at the start of each item; keep indentation consistent (2 spaces).
+#   • Delete any field you don't want shown (e.g. links, points, resume).
+# ─────────────────────────────────────────────────────────────
+
+profile:
+  name: Neeraj Joshi
+  short_name: Neeraj
+  logo: "<NJ />"
+  status: Robotics Engineer @ Sapien Robotics
+  headline: I build machines that sense and act.
+  bio: >
+    Electronics & Communication engineer working on industrial robotics, PLC programming
+    and warehouse automation. IoT tinkerer, programmer and troubleshooter at heart.
+  photo: ""                 # e.g. img/profile.jpg  (leave "" to show initials)
+  resume: ""                # e.g. resume.pdf       (leave "" to hide the button)
+  email: neerajjoshi2384@gmail.com
+  linkedin: https://www.linkedin.com/in/neerajjoshi23/
+  github: https://github.com/NJ-2384
+
+stats:
+  - value: "2"
+    label: patents
+  - value: "1"
+    label: publication
+  - value: "7+"
+    label: open-source projects
+
+projects:
+  - title: Multi-Wheel Odometry with Kalman Filtering
+    meta: Robotics · Sensor fusion
+    description: Real-time odometry estimation for a 4-wheel differential-drive robot, fusing wheel encoder data through a Kalman filter for a stable pose estimate.
+    tags: [Python, Kalman Filter, Odometry]
+    links:
+      - label: Code
+        url: https://github.com/NJ-2384/Multi-Wheel-Odometry-with-Kalman-Filtering
+
+  - title: Automatic Industrial Waste Sorting System
+    meta: Automation · Hardware
+    description: A low-cost system that sorts mixed-material waste automatically with minimal human intervention.
+    tags: [Sensors, Actuators, Automation]
+    links:
+      - label: Code
+        url: https://github.com/NJ-2384/Automatic-Industrial-Waste-Sorting-System
+
+  - title: Real-Time Fall Detection Band
+    meta: Embedded · Wearable
+    description: A smart band that detects falls in elderly people, children and people with disabilities, sends GSM alerts and shares live GNSS location. Patented.
+    tags: [C++, IMU, GSM, GNSS]
+    links:
+      - label: Code
+        url: https://github.com/NJ-2384/Real-Time-Sustainable-Fall-Detection-Band
+
+  - title: Oorja — Real-Time Power Monitoring
+    meta: IoT · Energy
+    description: Live monitoring and analysis of power consumption, helping homes and industries cut energy use and cost. Published as a research paper.
+    tags: [C++, IoT, MQTT]
+    links:
+      - label: Code
+        url: https://github.com/NJ-2384/Oorja
+
+  - title: Early Detection of Groundwater Contamination
+    meta: IoT · Environment
+    description: A sensor-based system that monitors groundwater quality and flags contamination early.
+    tags: [C++, Sensors, Embedded]
+    links:
+      - label: Code
+        url: https://github.com/NJ-2384/Early-Detection-of-Contamination-in-Groundwater
+
+  - title: ImageSorter
+    meta: Computer vision
+    description: Trains a face-encoding model on a dataset, then scans a whole folder tree and separates out photos that match above 60%.
+    tags: [Python, Face Recognition, OpenCV]
+    links:
+      - label: Code
+        url: https://github.com/NJ-2384/ImageSorter
+
+  - title: RemuxPlus
+    meta: Desktop tool
+    description: A modern GUI over FFmpeg that handles video processing without the command line.
+    tags: [Python, CustomTkinter, FFmpeg]
+    links:
+      - label: Code
+        url: https://github.com/NJ-2384/RemuxPlus
+
+research:
+  - type: Patent
+    title: Real-Time Wearable Fall Detection and Emergency Communication System with GSM-GNSS Tracking and Working Method Thereof
+    description: A wearable band that detects falls in real time and sends emergency alerts with live GSM-GNSS location tracking.
+    links:
+      - label: Project
+        url: https://github.com/NJ-2384/Real-Time-Sustainable-Fall-Detection-Band
+
+  - type: Patent
+    title: Battery Pack Completion System
+    description: An automated system for completing battery pack assembly.   # TODO: replace with the real summary
+
+  - type: Publication
+    title: "Oorja: Real-Time Sustainable Power Monitoring System"
+    description: Real-time monitoring and analysis of power consumption, so industries and households can use energy more efficiently and cut costs.
+    links:
+      - label: Project
+        url: https://github.com/NJ-2384/Oorja
+
+experience:
+  - role: Robotics Engineer
+    org: Sapien Robotics
+    from: Aug 2026
+    to: Present
+
+  - role: Robotics Intern
+    org: Sapien Robotics
+    from: Jan 2026
+    to: Aug 2026
+
+  - role: PQC Intern
+    org: XIHI Technology Pvt. Ltd.
+    location: Noida
+    from: Jun 2025
+    to: Aug 2025
+
+  - role: Student Ambassador
+    org: AKGEC-KUKA
+    from: Dec 2024
+    to: Dec 2025
+
+  - role: Trainee
+    org: AKGEC-KUKA
+    from: Jan 2024
+    to: Dec 2024
+
+  - role: Trainee
+    org: AKGEC Skills Foundation
+    location: Ghaziabad
+    from: Jan 2024
+    to: Sep 2024
+
+  - role: Student Representative (Generation Global)
+    org: Tony Blair Institute for Global Change
+    from: Apr 2015
+    to: May 2019
+    points:
+      - Took part in video discussions with international students on events affecting the environment and daily life.
+      - Wrote articles on how geopolitical approaches to environmental policy shape sustainability outcomes.
+
+education:
+  - degree: B.Tech, Electrical, Electronics & Communications Engineering
+    school: Ajay Kumar Garg Engineering College, Ghaziabad
+    from: Nov 2022
+    to: May 2026
+
+  - degree: AISSCE (PCM + AI)
+    school: Gurukul The School, Ghaziabad
+    from: "2020"
+    to: "2022"
+    note: Class Representative 2013–2019 · Junior School Prefect 2014–15
+
+certifications:
+  - Industrial Automation Specialist
+  - Robot Programming & Simulation — Basic
+  - Elements of AI
+  - ICEECT-2024
+  - Student Development Programme
+
+awards:
+  - All Rounder
+  - Nightangale
+  - Scholarship
+  - Consistent Performer
+  - Scholar
+
+# The first group is highlighted. Order groups/items however you like.
+skills:
+  - group: Top Skills
+    items: [Industrial Robotics, PLC Programming, Warehouse Automation]
+  - group: Programming
+    items: [Python, C / C++, Go, Structured Text, JavaScript]
+  - group: Embedded & IoT
+    items: [ESP32, Arduino, Raspberry Pi, MQTT, GSM / GNSS]
+  - group: Industrial Automation
+    items: [CODESYS, PLC, EtherNet/IP, HMI, Machine Vision]
+  - group: Robotics & AI
+    items: [Kalman Filtering, Odometry, OpenCV, LLM pipelines]
+  - group: Tools
+    items: [Git, Docker, Linux, PostgreSQL]
+  - group: Spoken Languages
+    items: [English — Professional, Hindi — Native, Kumauni — Elementary]

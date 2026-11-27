@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Neeraj Joshi — Robotics & Embedded Engineer</title>
-  <meta name="description" content="Portfolio of Neeraj Joshi: robotics, embedded systems, IoT and automation projects.">
+  <title>Portfolio</title>
+  <!-- All content lives in data.yml. This file is only the layout. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
   <style>
     :root {
       --bg: #0b0f14;
@@ -88,7 +89,7 @@
     .eyebrow { font-family: var(--mono); color: var(--accent); font-size: .85rem; margin-bottom: 8px; }
     h2 { font-size: 2rem; font-weight: 700; margin-bottom: 40px; letter-spacing: -.01em; }
 
-    /* ---------- projects ---------- */
+    /* ---------- cards ---------- */
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
     .card {
       background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
@@ -96,6 +97,7 @@
       transition: transform .2s, border-color .2s;
     }
     .card:hover { transform: translateY(-4px); border-color: rgba(56,189,248,.5); }
+    .card.highlight { border-color: rgba(56,189,248,.5); }
     .card .meta { font-family: var(--mono); font-size: .78rem; color: var(--muted); }
     .card h3 { font-size: 1.15rem; font-weight: 600; }
     .card p { color: var(--muted); font-size: .93rem; flex: 1; }
@@ -122,15 +124,16 @@
     .item ul { color: var(--muted); padding-left: 18px; font-size: .93rem; }
     .item li { margin-bottom: 4px; }
 
-    /* ---------- skills ---------- */
-    .skills { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-    .skills .card h3 { font-size: 1rem; }
+    .cols { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+    .cols .card h3 { font-size: 1rem; }
 
     /* ---------- contact ---------- */
     .contact { text-align: center; }
     .contact p { color: var(--muted); max-width: 560px; margin: -24px auto 36px; }
     .contact .btns { justify-content: center; }
     footer { padding: 32px 0; text-align: center; color: var(--muted); font-size: .85rem; border-top: 1px solid var(--line); }
+
+    .error { max-width: 640px; margin: 120px auto; padding: 24px; border: 1px solid #7f1d1d; border-radius: 12px; background: #1c0f0f; color: #fca5a5; font-family: var(--mono); font-size: .9rem; white-space: pre-wrap; }
 
     /* ---------- reveal on scroll ---------- */
     .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s, transform .6s; }
@@ -142,289 +145,136 @@
   </style>
 </head>
 <body>
-
-  <nav>
-    <div class="wrap">
-      <a href="#" class="logo">&lt;NJ /&gt;</a>
-      <ul>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#research">Patents</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- ================= HERO ================= -->
-  <header class="hero">
-    <div class="wrap">
-      <div>
-        <div class="tag">Robotics Engineer @ Sapien Robotics</div>
-        <h1>Hi, I'm Neeraj.<br><span class="grad">I build machines that sense and act.</span></h1>
-        <p class="lead">
-          Electronics &amp; Communication engineer working on industrial robotics, PLC programming
-          and warehouse automation. IoT tinkerer, programmer and troubleshooter at heart.
-        </p>
-        <div class="stats">
-          <div class="stat"><b>2</b><span>patents</span></div>
-          <div class="stat"><b>1</b><span>publication</span></div>
-          <div class="stat"><b>7+</b><span>open-source projects</span></div>
-        </div>
-        <div class="btns">
-          <a class="btn primary" href="#projects">View my work</a>
-          <a class="btn" href="resume.pdf" target="_blank">Résumé</a>
-          <a class="btn" href="https://github.com/NJ-2384" target="_blank">GitHub</a>
-        </div>
-      </div>
-      <!-- TODO: add img/profile.jpg and swap the initials for: <img src="img/profile.jpg" alt="Neeraj Joshi"> -->
-      <div class="portrait"><span class="initials">NJ</span></div>
-    </div>
-  </header>
-
-  <!-- ================= PROJECTS ================= -->
-  <section id="projects">
-    <div class="wrap">
-      <div class="eyebrow">// projects</div>
-      <h2>Things I've built</h2>
-      <div class="grid">
-
-        <article class="card reveal">
-          <div class="meta">Robotics · Sensor fusion</div>
-          <h3>Multi-Wheel Odometry with Kalman Filtering</h3>
-          <p>Real-time odometry estimation for a 4-wheel differential-drive robot, fusing wheel encoder data through a Kalman filter for a stable pose estimate.</p>
-          <div class="chips"><span class="chip">Python</span><span class="chip">Kalman Filter</span><span class="chip">Odometry</span></div>
-          <div class="links"><a href="https://github.com/NJ-2384/Multi-Wheel-Odometry-with-Kalman-Filtering" target="_blank">Code →</a></div>
-        </article>
-
-        <article class="card reveal">
-          <div class="meta">Automation · Hardware</div>
-          <h3>Automatic Industrial Waste Sorting System</h3>
-          <p>A low-cost system that sorts mixed-material waste automatically with minimal human intervention.</p>
-          <div class="chips"><span class="chip">Sensors</span><span class="chip">Actuators</span><span class="chip">Automation</span></div>
-          <div class="links"><a href="https://github.com/NJ-2384/Automatic-Industrial-Waste-Sorting-System" target="_blank">Code →</a></div>
-        </article>
-
-        <article class="card reveal">
-          <div class="meta">Embedded · Wearable</div>
-          <h3>Real-Time Fall Detection Band</h3>
-          <p>A smart band that detects falls in elderly people, children and people with disabilities, sends GSM alerts and shares live GNSS location. Patented.</p>
-          <div class="chips"><span class="chip">C++</span><span class="chip">IMU</span><span class="chip">GSM</span><span class="chip">GNSS</span></div>
-          <div class="links"><a href="https://github.com/NJ-2384/Real-Time-Sustainable-Fall-Detection-Band" target="_blank">Code →</a></div>
-        </article>
-
-        <article class="card reveal">
-          <div class="meta">IoT · Energy</div>
-          <h3>Oorja — Real-Time Power Monitoring</h3>
-          <p>Live monitoring and analysis of power consumption, helping homes and industries cut energy use and cost. Published as a research paper.</p>
-          <div class="chips"><span class="chip">C++</span><span class="chip">IoT</span><span class="chip">MQTT</span></div>
-          <div class="links"><a href="https://github.com/NJ-2384/Oorja" target="_blank">Code →</a></div>
-        </article>
-
-        <article class="card reveal">
-          <div class="meta">IoT · Environment</div>
-          <h3>Early Detection of Groundwater Contamination</h3>
-          <p>A sensor-based system that monitors groundwater quality and flags contamination early.</p>
-          <div class="chips"><span class="chip">C++</span><span class="chip">Sensors</span><span class="chip">Embedded</span></div>
-          <div class="links"><a href="https://github.com/NJ-2384/Early-Detection-of-Contamination-in-Groundwater" target="_blank">Code →</a></div>
-        </article>
-
-        <article class="card reveal">
-          <div class="meta">Computer vision</div>
-          <h3>ImageSorter</h3>
-          <p>Trains a face-encoding model on a dataset, then scans a whole folder tree and separates out photos that match above 60%.</p>
-          <div class="chips"><span class="chip">Python</span><span class="chip">Face Recognition</span><span class="chip">OpenCV</span></div>
-          <div class="links"><a href="https://github.com/NJ-2384/ImageSorter" target="_blank">Code →</a></div>
-        </article>
-
-        <article class="card reveal">
-          <div class="meta">Desktop tool</div>
-          <h3>RemuxPlus</h3>
-          <p>A modern GUI over FFmpeg that handles video processing without the command line.</p>
-          <div class="chips"><span class="chip">Python</span><span class="chip">CustomTkinter</span><span class="chip">FFmpeg</span></div>
-          <div class="links"><a href="https://github.com/NJ-2384/RemuxPlus" target="_blank">Code →</a></div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= PATENTS & PUBLICATIONS ================= -->
-  <section id="research">
-    <div class="wrap">
-      <div class="eyebrow">// patents &amp; publications</div>
-      <h2>Research</h2>
-      <div class="grid">
-
-        <article class="card reveal">
-          <div class="meta">Patent</div>
-          <h3>Real-Time Wearable Fall Detection and Emergency Communication System with GSM-GNSS Tracking and Working Method Thereof</h3>
-          <p>A wearable band that detects falls in real time and sends emergency alerts with live GSM-GNSS location tracking.</p>
-          <div class="links"><a href="https://github.com/NJ-2384/Real-Time-Sustainable-Fall-Detection-Band" target="_blank">Project →</a></div>
-        </article>
-
-        <article class="card reveal">
-          <div class="meta">Patent</div>
-          <h3>Battery Pack Completion System</h3>
-          <p>An automated system for completing battery pack assembly.</p>
-        </article>
-
-        <article class="card reveal">
-          <div class="meta">Publication</div>
-          <h3>Oorja: Real-Time Sustainable Power Monitoring System</h3>
-          <p>Real-time monitoring and analysis of power consumption, so industries and households can use energy more efficiently and cut costs.</p>
-          <div class="links"><a href="https://github.com/NJ-2384/Oorja" target="_blank">Project →</a></div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= EXPERIENCE ================= -->
-  <section id="experience">
-    <div class="wrap">
-      <div class="eyebrow">// experience</div>
-      <h2>Where I've worked</h2>
-      <div class="timeline">
-
-        <div class="item reveal">
-          <div class="when">Aug 2026 — Present</div>
-          <h3>Robotics Engineer</h3>
-          <div class="org">Sapien Robotics</div>
-        </div>
-
-        <div class="item reveal">
-          <div class="when">Jan 2026 — Aug 2026</div>
-          <h3>Robotics Intern</h3>
-          <div class="org">Sapien Robotics</div>
-        </div>
-
-        <div class="item reveal">
-          <div class="when">Jun 2025 — Aug 2025</div>
-          <h3>PQC Intern</h3>
-          <div class="org">XIHI Technology Pvt. Ltd. · Noida</div>
-        </div>
-
-        <div class="item reveal">
-          <div class="when">Dec 2024 — Dec 2025</div>
-          <h3>Student Ambassador</h3>
-          <div class="org">AKGEC-KUKA</div>
-        </div>
-
-        <div class="item reveal">
-          <div class="when">Jan 2024 — Dec 2024</div>
-          <h3>Trainee</h3>
-          <div class="org">AKGEC-KUKA</div>
-        </div>
-
-        <div class="item reveal">
-          <div class="when">Jan 2024 — Sep 2024</div>
-          <h3>Trainee</h3>
-          <div class="org">AKGEC Skills Foundation · Ghaziabad</div>
-        </div>
-
-        <div class="item reveal">
-          <div class="when">Apr 2015 — May 2019</div>
-          <h3>Student Representative (Generation Global)</h3>
-          <div class="org">Tony Blair Institute for Global Change</div>
-          <ul>
-            <li>Took part in video discussions with international students on events affecting the environment and daily life.</li>
-            <li>Wrote articles on how geopolitical approaches to environmental policy shape sustainability outcomes.</li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= EDUCATION & AWARDS ================= -->
-  <section id="education">
-    <div class="wrap">
-      <div class="eyebrow">// education &amp; awards</div>
-      <h2>Education</h2>
-      <div class="skills">
-        <div class="card reveal">
-          <div class="meta">Nov 2022 — May 2026</div>
-          <h3>B.Tech, Electrical, Electronics &amp; Communications Engineering</h3>
-          <p>Ajay Kumar Garg Engineering College, Ghaziabad</p>
-        </div>
-        <div class="card reveal">
-          <div class="meta">2020 — 2022</div>
-          <h3>AISSCE (PCM + AI)</h3>
-          <p>Gurukul The School, Ghaziabad<br>Class Representative 2013–2019 · Junior School Prefect 2014–15</p>
-        </div>
-        <div class="card reveal">
-          <h3>Certifications</h3>
-          <div class="chips"><span class="chip">Industrial Automation Specialist</span><span class="chip">Robot Programming &amp; Simulation — Basic</span><span class="chip">Elements of AI</span><span class="chip">ICEECT-2024</span><span class="chip">Student Development Programme</span></div>
-        </div>
-        <div class="card reveal">
-          <h3>Honors &amp; Awards</h3>
-          <div class="chips"><span class="chip">All Rounder</span><span class="chip">Nightangale</span><span class="chip">Scholarship</span><span class="chip">Consistent Performer</span><span class="chip">Scholar</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= SKILLS ================= -->
-  <section id="skills">
-    <div class="wrap">
-      <div class="eyebrow">// skills</div>
-      <h2>Toolbox</h2>
-      <div class="skills">
-        <div class="card reveal" style="border-color: rgba(56,189,248,.5)">
-          <h3>Top Skills</h3>
-          <div class="chips"><span class="chip">Industrial Robotics</span><span class="chip">PLC Programming</span><span class="chip">Warehouse Automation</span></div>
-        </div>
-        <div class="card reveal">
-          <h3>Programming</h3>
-          <div class="chips"><span class="chip">Python</span><span class="chip">C / C++</span><span class="chip">Go</span><span class="chip">Structured Text</span><span class="chip">JavaScript</span></div>
-        </div>
-        <div class="card reveal">
-          <h3>Embedded &amp; IoT</h3>
-          <div class="chips"><span class="chip">ESP32</span><span class="chip">Arduino</span><span class="chip">Raspberry Pi</span><span class="chip">MQTT</span><span class="chip">GSM / GNSS</span></div>
-        </div>
-        <div class="card reveal">
-          <h3>Industrial Automation</h3>
-          <div class="chips"><span class="chip">CODESYS</span><span class="chip">PLC</span><span class="chip">EtherNet/IP</span><span class="chip">HMI</span><span class="chip">Machine Vision</span></div>
-        </div>
-        <div class="card reveal">
-          <h3>Robotics &amp; AI</h3>
-          <div class="chips"><span class="chip">Kalman Filtering</span><span class="chip">Odometry</span><span class="chip">OpenCV</span><span class="chip">LLM pipelines</span></div>
-        </div>
-        <div class="card reveal">
-          <h3>Tools</h3>
-          <div class="chips"><span class="chip">Git</span><span class="chip">Docker</span><span class="chip">Linux</span><span class="chip">PostgreSQL</span></div>
-        </div>
-        <div class="card reveal">
-          <h3>Spoken Languages</h3>
-          <div class="chips"><span class="chip">English — Professional</span><span class="chip">Hindi — Native</span><span class="chip">Kumauni — Elementary</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= CONTACT ================= -->
-  <section id="contact" class="contact">
-    <div class="wrap">
-      <div class="eyebrow">// contact</div>
-      <h2>Let's build something</h2>
-      <p>Robotics, automation or embedded work — I'm always happy to talk.</p>
-      <div class="btns">
-        <a class="btn primary" href="mailto:neerajjoshi2384@gmail.com">Email me</a>
-        <a class="btn" href="https://www.linkedin.com/in/neerajjoshi23/" target="_blank">LinkedIn</a>
-        <a class="btn" href="https://github.com/NJ-2384" target="_blank">GitHub</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>© <span id="yr"></span> Neeraj Joshi · Built with plain HTML, hosted on GitHub Pages</footer>
+  <div id="app"></div>
 
   <script>
-    document.getElementById('yr').textContent = new Date().getFullYear();
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    // ---------- helpers ----------
+    const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const list = a => Array.isArray(a) ? a : [];
+    const chips = items => list(items).length ? `<div class="chips">${list(items).map(t => `<span class="chip">${esc(t)}</span>`).join('')}</div>` : '';
+    const links = items => list(items).length ? `<div class="links">${list(items).map(l => `<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)} →</a>`).join('')}</div>` : '';
+    const section = (id, eyebrow, title, body) => `
+      <section id="${id}"><div class="wrap">
+        <div class="eyebrow">// ${esc(eyebrow)}</div>
+        <h2>${esc(title)}</h2>
+        ${body}
+      </div></section>`;
+    const dates = (from, to) => [from, to].filter(Boolean).map(esc).join(' — ');
+
+    // ---------- renderer ----------
+    function render(d) {
+      const p = d.profile || {};
+      const initials = (p.name || '').split(/\s+/).map(w => w[0]).join('').slice(0, 2).toUpperCase();
+      document.title = `${p.name || 'Portfolio'}${p.status ? ' — ' + p.status : ''}`;
+
+      const nav = [
+        ['projects', 'Projects', d.projects],
+        ['research', 'Patents', d.research],
+        ['experience', 'Experience', d.experience],
+        ['skills', 'Skills', d.skills],
+        ['contact', 'Contact', true],
+      ].filter(n => n[2] && (n[2] === true || list(n[2]).length));
+
+      const hero = `
+        <nav><div class="wrap">
+          <a href="#" class="logo">${esc(p.logo || initials)}</a>
+          <ul>${nav.map(([id, label]) => `<li><a href="#${id}">${label}</a></li>`).join('')}</ul>
+        </div></nav>
+        <header class="hero"><div class="wrap">
+          <div>
+            ${p.status ? `<div class="tag">${esc(p.status)}</div>` : ''}
+            <h1>Hi, I'm ${esc(p.short_name || p.name)}.<br><span class="grad">${esc(p.headline)}</span></h1>
+            <p class="lead">${esc(p.bio)}</p>
+            <div class="stats">${list(d.stats).map(s => `<div class="stat"><b>${esc(s.value)}</b><span>${esc(s.label)}</span></div>`).join('')}</div>
+            <div class="btns">
+              <a class="btn primary" href="#projects">View my work</a>
+              ${p.resume ? `<a class="btn" href="${esc(p.resume)}" target="_blank">Résumé</a>` : ''}
+              ${p.github ? `<a class="btn" href="${esc(p.github)}" target="_blank" rel="noopener">GitHub</a>` : ''}
+            </div>
+          </div>
+          <div class="portrait">${p.photo ? `<img src="${esc(p.photo)}" alt="${esc(p.name)}">` : `<span class="initials">${esc(initials)}</span>`}</div>
+        </div></header>`;
+
+      const projects = list(d.projects).length ? section('projects', 'projects', "Things I've built", `
+        <div class="grid">${list(d.projects).map(x => `
+          <article class="card reveal">
+            ${x.meta ? `<div class="meta">${esc(x.meta)}</div>` : ''}
+            <h3>${esc(x.title)}</h3>
+            <p>${esc(x.description)}</p>
+            ${chips(x.tags)}${links(x.links)}
+          </article>`).join('')}
+        </div>`) : '';
+
+      const research = list(d.research).length ? section('research', 'patents & publications', 'Research', `
+        <div class="grid">${list(d.research).map(x => `
+          <article class="card reveal">
+            <div class="meta">${esc(x.type)}</div>
+            <h3>${esc(x.title)}</h3>
+            <p>${esc(x.description)}</p>
+            ${links(x.links)}
+          </article>`).join('')}
+        </div>`) : '';
+
+      const experience = list(d.experience).length ? section('experience', 'experience', "Where I've worked", `
+        <div class="timeline">${list(d.experience).map(x => `
+          <div class="item reveal">
+            <div class="when">${dates(x.from, x.to)}</div>
+            <h3>${esc(x.role)}</h3>
+            <div class="org">${[x.org, x.location].filter(Boolean).map(esc).join(' · ')}</div>
+            ${list(x.points).length ? `<ul>${list(x.points).map(pt => `<li>${esc(pt)}</li>`).join('')}</ul>` : ''}
+          </div>`).join('')}
+        </div>`) : '';
+
+      const eduCards = [
+        ...list(d.education).map(x => `
+          <div class="card reveal">
+            <div class="meta">${dates(x.from, x.to)}</div>
+            <h3>${esc(x.degree)}</h3>
+            <p>${esc(x.school)}${x.note ? `<br>${esc(x.note)}` : ''}</p>
+          </div>`),
+        list(d.certifications).length ? `<div class="card reveal"><h3>Certifications</h3>${chips(d.certifications)}</div>` : '',
+        list(d.awards).length ? `<div class="card reveal"><h3>Honors &amp; Awards</h3>${chips(d.awards)}</div>` : '',
+      ].join('');
+      const education = eduCards.trim() ? section('education', 'education & awards', 'Education', `<div class="cols">${eduCards}</div>`) : '';
+
+      const skills = list(d.skills).length ? section('skills', 'skills', 'Toolbox', `
+        <div class="cols">${list(d.skills).map((g, i) => `
+          <div class="card reveal${i === 0 ? ' highlight' : ''}">
+            <h3>${esc(g.group)}</h3>${chips(g.items)}
+          </div>`).join('')}
+        </div>`) : '';
+
+      const contact = `
+        <section id="contact" class="contact"><div class="wrap">
+          <div class="eyebrow">// contact</div>
+          <h2>Let's build something</h2>
+          <p>Robotics, automation or embedded work — I'm always happy to talk.</p>
+          <div class="btns">
+            ${p.email ? `<a class="btn primary" href="mailto:${esc(p.email)}">Email me</a>` : ''}
+            ${p.linkedin ? `<a class="btn" href="${esc(p.linkedin)}" target="_blank" rel="noopener">LinkedIn</a>` : ''}
+            ${p.github ? `<a class="btn" href="${esc(p.github)}" target="_blank" rel="noopener">GitHub</a>` : ''}
+          </div>
+        </div></section>
+        <footer>© ${new Date().getFullYear()} ${esc(p.name)} · Built with plain HTML, hosted on GitHub Pages</footer>`;
+
+      document.getElementById('app').innerHTML = hero + projects + research + experience + education + skills + contact;
+
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    }
+
+    // ---------- load ----------
+    fetch('data.yml', { cache: 'no-cache' })
+      .then(r => { if (!r.ok) throw new Error(`Could not load data.yml (HTTP ${r.status})`); return r.text(); })
+      .then(text => render(jsyaml.load(text)))
+      .catch(err => {
+        const hint = location.protocol === 'file:'
+          ? '\n\nYou opened the file directly. Browsers block that.\nRun this in the Website folder instead:\n  python -m http.server\nthen open http://localhost:8000'
+          : '';
+        document.getElementById('app').innerHTML = `<div class="error">${esc(err.message)}${hint}</div>`;
+      });
   </script>
 </body>
 </html>
