@@ -23,7 +23,7 @@ profile:
   bio: >
     Electronics & Communication engineer working on industrial robotics, PLC programming
     and warehouse automation. IoT tinkerer, programmer and troubleshooter at heart.
-  photo: ""                 # e.g. img/profile.jpg  (leave "" to show initials)
+  photo: "img/profile.jpg"                 # e.g. img/profile.jpg  (leave "" to show initials)
   resume: ""                # e.g. resume.pdf       (leave "" to hide the download button)
   linkedin: https://www.linkedin.com/in/neerajjoshi23/
   github: https://github.com/NJ-2384
